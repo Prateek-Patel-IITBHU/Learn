@@ -1,0 +1,317 @@
+*{
+    margin: 0px;
+    padding: 0px;
+} /* by default sbki margin and padding 0 krdega*/
+.body{
+  background-color: black;
+  padding: 0px;
+  scrollbar-color: transparent;
+  height: 100vh;
+}
+.left{
+    width: 380px;
+    padding: 5px;
+    margin: 5px;
+    justify-content: left;
+}
+.home ul li{
+    width: 14px;
+    list-style: none; /*to remove bullets*/
+    display:flex;
+    gap: 15px;
+    padding-top: 15px;
+    /* justify-content: right; */
+}
+.heading {
+    display: flex; /* arrange image and h2 side by side */
+    /* align-items: center; vertically center */
+    gap: 15px; /* space between image and text */
+    padding-top: 0px;
+    font-weight: bold;
+    font-size: 12px;;
+}
+
+.heading img{
+    width: 20px; /* or wtever size you want */
+}
+.library{
+  min-height: 75vh;
+  position: relative;
+}
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 10px;
+  font-weight: bold;
+  gap: 3px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0px;
+  padding-bottom: 1px;
+  margin: 0px;
+}
+
+.footer a {
+  color: rgb(147, 136, 136);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: black;
+}
+.right{
+    width: 75vw;
+    padding: 5px;
+    margin: 5px;
+    position: relative;
+    overflow-x: hidden;
+}
+.header{
+  display: flex; /*sb ek line me aa jaega and justify content wagairah bhi use kr skte h*/
+  justify-content: space-between;
+  background-color: rgb(43, 41, 41);
+  margin: 0px;
+  width: 100%;
+}
+.header > *{
+  padding: 10px;
+}
+.nav{
+  display: flex;
+  align-items: center;
+}
+.hamburger{
+  display: none;
+}
+.spotify-playlist{
+  padding: 0px;
+}
+.cardcontainer{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px;
+  gap: 0px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.spotify-playlist .card{
+  margin: 10px;
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(100, 104, 104);
+  position: relative;
+}
+.card img{
+  width: 100%;
+  object-fit: contain;
+}
+.card .play{
+  background-color: green;
+  object-fit: contain;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 152px;
+  left: 155px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  opacity: 0;
+  transition: all 0.5s ease; /* fixed */
+  pointer-events: none; /* prevent interaction when hidden */
+}
+.card:hover{
+  background-color: #46453f;
+}
+.card:hover .play {
+  opacity: 1;
+  pointer-events: auto;
+}
+.loginbtn{
+  background-color: rgb(43, 41, 41);
+  color: grey;
+  font-weight: bold;
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+}
+.loginbtn:hover{ /*there should be no space between class and :hover otherwise it will consider as a class*/
+  color: white;
+  font-size: 20px;
+  width: 65px;
+}
+.signupbtn{
+  width: 60px;
+  height: 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 5px;;
+}
+.signupbtn:hover{
+  width: 65px;
+  font-weight: bold;
+  height: 35px;
+}
+.button >*{
+  margin: 10px;
+}
+.playbar{
+   height: 75px;
+   width: 100%;
+   padding: 0%;
+   position: absolute;
+   background-color: rgb(25, 53, 25);
+   bottom: 0px;
+   margin: 0px;
+   margin-right: 4px;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items:  center;
+   gap: 10px;
+}
+.seekBar{
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  border: solid white 2px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  margin-right: 4px;
+}
+.circle{
+  height: 12px;
+  width: 12px;
+  border-radius: 4px;
+  background-color: rgb(239, 242, 233);
+  transition-property: position;
+  position: absolute;
+}
+@media (min-width: 850px){.w2 >*:hover{
+   filter: invert(0.6);
+}}
+.songList ul {
+  padding-left: 20px; /* Controls overall indent */
+}
+
+.songList ul li {
+  list-style: decimal outside;
+  margin: 10px 0;
+  padding-left: 0;      /* Avoid extra indent */
+  text-indent: 2px;   /* Pull text closer to the marker */
+}
+.songButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4b4b4b; /* Example background */
+    padding: 10px 20px;
+    position: relative;
+    color: #f0eada;
+    font-family: sans-serif;
+    margin: 8px 0;
+}
+
+.musicIcon img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.songInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.playNow {
+    margin-left: auto;
+    margin-right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.playIcon {
+    width: 20px;
+}
+.playIcon :hover{
+  width: 15px;
+}
+.volumebar {
+  background-color: green;
+  width: 100px;
+  height: 3px;
+  border: 2px solid green;
+  border-radius: 2px;
+  position: absolute;
+  top:5px;
+  /* display: none; */
+}
+
+
+@media (max-width:850px){
+  .left{
+    position: absolute;
+    left: -120%; /* initially hidden */
+    transition: all 0.3s ease;
+    z-index: 1;
+    width: 420px;
+    background-color: black; 
+    height: 100vh;
+    top: 0;
+  }
+
+  .right {
+    width: 98vw;
+    height: 98vh;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .left.show {
+    left: 0; /* visible when "show" class is added */
+  }
+ 
+
+}
+@media (max-width:420px){
+  .left{
+    position: absolute;
+    left: -120%; /* initially hidden */
+    transition: all 0.3s ease;
+    z-index: 1;
+    width: 98vw;
+    background-color: black; 
+    height: 100vh;
+    top: 0;
+  }
+
+  .right {
+    width: 98vw;
+    height: 98vh;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .left.show {
+    left: 0; /* visible when "show" class is added */
+  }
+  .cardcontainer{
+  justify-content: center;
+}
+}
+@media (max-width:500px){
+   .volumebar{
+  width: 12vw;
+}
+}
