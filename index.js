@@ -1,5 +1,5 @@
 async function getSongs(folder) {
-    let a = await fetch(`https://github.com/Prateek-Patel-IITBHU/Learn/${folder}/`);
+    let a = await fetch(`./${folder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -28,7 +28,7 @@ let voll = 1.0;
 let playbarEventsAttached = false;
 
 async function displayAlbums() {
-    let a = await fetch(`https://github.com/Prateek-Patel-IITBHU/Learn/music/`);
+    let a = await fetch(`./music/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -42,7 +42,7 @@ async function displayAlbums() {
         if (e.href.includes("/music/")) {
             let folder = e.href.split("/").slice(-1)[0].replaceAll("%20", " ");
             try {
-                let res = await fetch(`https://github.com/Prateek-Patel-IITBHU/Learn/music/${folder}/info.json`);
+                let res = await fetch(`./music/${folder}/info.json`);
                 if (!res.ok) continue;
                 let info = await res.json();
 
@@ -51,7 +51,7 @@ async function displayAlbums() {
                         <div class="play" data-folder="${folder}">
                             <img src="images/play.svg" alt="play">
                         </div>
-                        <img src="/music/${folder}/cover.jpg" alt="s1">
+                        <img src="music/${folder}/cover.jpg" alt="s1">
                         <h2>${info.title}</h2>
                         <p>${info.description}</p>
                     </div>
@@ -61,20 +61,20 @@ async function displayAlbums() {
             }
         }
     }
+
     Array.from(document.getElementsByClassName("card")).forEach(card => {
-     card.addEventListener("click", async (event) => {
-     const folder = card.querySelector(".play").dataset.folder;
-     if (!folder) return;
-     await main(`music/${folder}`);
+        card.addEventListener("click", async (event) => {
+            const folder = card.querySelector(".play").dataset.folder;
+            if (!folder) return;
+            await main(`music/${folder}`);
 
-     if (audio.src === "") {
-       playSongByIndex(0);
-     } else {
-       document.querySelector(".left").style.left = "0%";
-     }
-  });
-});
-
+            if (audio.src === "") {
+                playSongByIndex(0);
+            } else {
+                document.querySelector(".left").style.left = "0%";
+            }
+        });
+    });
 }
 
 function playSongByIndex(index) {
@@ -155,7 +155,6 @@ async function main(folder) {
                 audio.play();
                 audio.volume = voll;
                 document.getElementsByClassName("playbarbutton")[1].src = "images/pause.svg";
-                
             } else {
                 audio.pause();
                 document.getElementsByClassName("playbarbutton")[1].src = "images/play.svg";
@@ -202,9 +201,9 @@ async function main(folder) {
         document.querySelector(".close").addEventListener("click", () => {
             document.querySelector(".left").style.left = "-120%";
         });
+
         playbarEventsAttached = true;
     }
 }
 
 displayAlbums();
-
