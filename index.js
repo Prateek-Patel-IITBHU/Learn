@@ -1,5 +1,5 @@
 async function getSongs(folder) {
-    let a = await fetch(`http://127.0.0.1:5500/${folder}/`);
+    let a = await fetch(`https://github.com/Prateek-Patel-IITBHU/Learn/${folder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -28,7 +28,7 @@ let voll = 1.0;
 let playbarEventsAttached = false;
 
 async function displayAlbums() {
-    let a = await fetch(`http://127.0.0.1:5500/music/`);
+    let a = await fetch(`https://github.com/Prateek-Patel-IITBHU/Learn/music/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -42,7 +42,7 @@ async function displayAlbums() {
         if (e.href.includes("/music/")) {
             let folder = e.href.split("/").slice(-1)[0].replaceAll("%20", " ");
             try {
-                let res = await fetch(`http://127.0.0.1:5500/music/${folder}/info.json`);
+                let res = await fetch(`https://github.com/Prateek-Patel-IITBHU/Learn/music/${folder}/info.json`);
                 if (!res.ok) continue;
                 let info = await res.json();
 
