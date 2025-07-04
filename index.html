@@ -63,29 +63,32 @@
                 </div>
             </div>
             <div class="spotify-playlist">
-                <h1 style="margin: 20px;">Spotify Playlists</h1>
+                <h1 style="margin: 20px;"> Song Albums </h1>
                 <div class="cardcontainer">
                     
                 </div>
             </div>
             <div class="playbar"> 
                 <div class="w1">
-                <div class="seekBar">
-                    <div class="circle"></div>
+                <div class="range" >
+                                <input type="range" name="volume" class="slider" value = "99.8" style = "accent-color:white; width: 100%;">
+                            </div>
                 </div>
-                </div>
-                <div class="w2" style = "display: flex; justify-content: center; height: 38px">
+                <div class="w2" style = "display: flex; justify-content: center; height: 38px;">
                     <div class = "timeinbar" style = "position: absolute; right: 15px; top: 15px;"> 00:00 / 00:00 </div>
                     <!-- <div style = "width: 20%; height: 100%;"> -->
-                <img src="images/prevsong.svg" alt="prev" class = "invert playbarbutton">
-                <img src="images/play.svg" alt="play" class = "invert playbarbutton">
-                <img src="images/nextsong.svg" alt="next" class = "invert playbarbutton">
+                        
+                <img src="images/prevsong.svg" alt="prev" class = "invert playbarbutton" style = "position: relative; top: -8px;">
+                <img src="images/play.svg" alt="play" class = "invert playbarbutton" style = "position: relative; top: -8px;">
+                <img src="images/nextsong.svg" alt="next" class = "invert playbarbutton" style = "position: relative; top: -8px;">
                     
-                         </div>
                 <!-- <div style = "padding: 0; margin: 0; overflow: visible"> -->
-                    <img src="images/volume.svg" alt="vol" class = "invert volbutton" style=" position: absolute; left: 2px; top: 5px; height: 60%;">
-                    <div class="volumebar" style = "position: absolute; left: 50px; top: 25px; display: flex; ">
-                    <div class="vol circle" style = "background-color: green; position:absolute; top: -4px; left: 100%;"></div>
+                    <img src="images/volume.svg" alt="vol" class = "invert volbutton" style=" position: absolute; left: 2px; top: 9px; height: 60%;">
+                    <!-- <div class="volumebar" style = "position: absolute; left: 50px; top: 25px; display: flex; ">
+                    <div class="vol circle" style = "background-color: green; position:absolute; top: -4px; left: 100%;"></div> -->
+                    <div class="volumebar" style = "position: absolute; left: 50px; top: 20px; display: flex;">
+                                <input type="range" name="volume" style = "accent-color: green;" value = "100">
+                            </div>
                 </div>  
                 <!-- </div> -->
                 <div class="w3">
