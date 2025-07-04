@@ -52,6 +52,35 @@ function playSongByIndex(index) {
     };
 }
 
+function playSongByIndex(index) {
+    if (index < 0 || index >= songs.length) return;
+
+    audio.src = songs[index];
+    audio.play();
+    audio.volume = voll;
+    currentSong = songs[index];
+    currentIndex = index;
+
+    document.getElementsByClassName("playbarbutton")[1].src = "images/pause.svg";
+
+    let songName = decodeURIComponent(audio.src)
+        .split("/").pop()
+        .replaceAll("_", " ")
+        .replaceAll("%20", " ")
+        .replaceAll("%26", "&")
+        .replace(".mp3", "");
+
+    document.querySelector(".songinbar").textContent = songName;
+
+    const timeElement = document.querySelector(".timeinbar");
+    audio.ontimeupdate = () => {
+        const currentSeconds = audio.currentTime;
+        const totalSeconds = audio.duration || 1;
+        timeElement.innerHTML = `${formatTime(currentSeconds)} / ${formatTime(totalSeconds)}`;
+        document.querySelector(".slider").value = (currentSeconds / totalSeconds) * 100;
+    };
+}
+
 async function main(folder) {
     songs = await getSongs(folder);
     currentIndex = -1;
@@ -94,6 +123,7 @@ async function main(folder) {
         document.getElementsByClassName("playbarbutton")[1].addEventListener("click", () => {
             if (audio.paused) {
                 audio.play();
+                // audio.volume = voll;
                 document.getElementsByClassName("playbarbutton")[1].src = "images/pause.svg";
             } else {
                 audio.pause();
@@ -123,19 +153,31 @@ async function main(folder) {
             }
         });
 
+        // document.querySelector(".volumebar").addEventListener("click", e => {
+        //     document.querySelector(".vol").style.left = (e.offsetX / e.target.getBoundingClientRect().width) * 100 + `%`;
+        //     voll = e.offsetX / e.target.getBoundingClientRect().width;
+        //     audio.volume = voll;
+        // });
         document.querySelector(".volumebar").getElementsByTagName("input")[0].addEventListener("change", (e) => {
-            voll = e.target.value;
-            audio.volume = parseInt(e.target.value) / 100;
-            if (audio.volume > 0) {
-                document.querySelector(".volbutton").src = document.querySelector(".volbutton").src.replace("mute.svg", "volume.svg");
-            } else {
-                document.querySelector(".volbutton").src = document.querySelector(".volbutton").src.replace("volume.svg", "mute.svg");
-            }
-        });
-
+        // console.log("Setting volume to", e.target.value, "/ 100")
+        voll = e.target.value;
+        audio.volume = parseInt(e.target.value) / 100;
+        if (audio.volume >0){
+            document.querySelector(".volbutton").src = document.querySelector(".volbutton").src.replace("mute.svg", "volume.svg")
+        }
+        else document.querySelector(".volbutton").src = document.querySelector(".volbutton").src.replace("volume.svg", "mute.svg")
+    })
         document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
-            audio.currentTime = parseInt(e.target.value) * audio.duration / 100;
-        });
+        // console.log("Setting volume to", e.target.value, "/ 100")
+        // console.log(e.target.value)
+        audio.currentTime = parseInt(e.target.value) * audio.duration/ 100;
+        
+    })
+
+        // document.querySelector(".seekBar").addEventListener("click", e => {
+        //     document.querySelector(".circle").style.left = (e.offsetX / e.target.getBoundingClientRect().width) * 100 + `%`;
+        //     audio.currentTime = (e.offsetX / e.target.getBoundingClientRect().width) * audio.duration;
+        // });
 
         document.querySelector(".hamburger").addEventListener("click", () => {
             document.querySelector(".left").style.left = "0";
