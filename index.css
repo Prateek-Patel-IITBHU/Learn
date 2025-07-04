@@ -173,25 +173,8 @@
    align-items:  center;
    gap: 10px;
 }
-.seekBar{
-  height: 2px;
-  width: 100%;
-  background-color: white;
-  border: solid white 2px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-  margin-right: 4px;
-}
-.circle{
-  height: 12px;
-  width: 12px;
-  border-radius: 4px;
-  background-color: rgb(239, 242, 233);
-  transition-property: position;
-  position: absolute;
-}
+
+
 @media (min-width: 850px){.w2 >*:hover{
    filter: invert(0.6);
 }}
@@ -241,16 +224,7 @@
 .playIcon :hover{
   width: 15px;
 }
-.volumebar {
-  background-color: green;
-  width: 100px;
-  height: 3px;
-  border: 2px solid green;
-  border-radius: 2px;
-  position: absolute;
-  top:5px;
-  /* display: none; */
-}
+
 
 
 @media (max-width:850px){
@@ -311,7 +285,7 @@
 }
 }
 @media (max-width:500px){
-   .volumebar{
-  width: 12vw;
+   .volumebar input{
+  width: 15vw;
 }
 }
